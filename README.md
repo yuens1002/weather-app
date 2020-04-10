@@ -1,7 +1,5 @@
 ## Weather App
 
-Sample app to fetch weather conditions
-
 - the backend is written in GO for the middelware to fetch
 
   - gps lat lng from a given city
