@@ -38,7 +38,7 @@ function App() {
       <div style={{ textAlign: 'center', width: '100%' }}>
         <h1>Weather Station No.179</h1>
         {showResults ? (
-          <p>Current Weather Conditions</p>
+          <p>Current Weather Conditions in {data.formatted_address}</p>
         ) : (
           <p>
             Enter the <u>city</u> and <u>state</u> to get current weather
@@ -47,8 +47,8 @@ function App() {
         {hasError && <div style={{ color: 'red' }}>{errMsg}</div>}
       </div>
       {showResults ? (
-        <div style={{ textAlign: 'center' }}>
-          <Results results={data} />
+        <GroupV style={{ textAlign: 'center' }}>
+          <Results results={data.weather} />
           <div style={{ paddingTop: '0.4rem' }}>
             <button
               onClick={(e) => [
@@ -59,7 +59,7 @@ function App() {
               Try Another city
             </button>
           </div>
-        </div>
+        </GroupV>
       ) : (
         <GroupV>
           <Input type={`City`} value={city} changeHandler={setCity} />
