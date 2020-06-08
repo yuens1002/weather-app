@@ -1,17 +1,19 @@
 ## Weather App
 
-- the backend is written in GO for the middelware to fetch
+- the backend is written in GO for the middleware to fetch
 
-  - gps lat lng from a given city
-  - weather conditions from weather service api using the lat lng
+  [x] gps lat lng from a given city & state
+  [x] weather conditions from weather service api using the lat lng
+  [ ] fetches user info from a postgreQL db
 
-- the frontend is written is in React atm
+- the frontend is written is in React
 
-  - user can etner city/state to fetch weather conditions
-  - displays weather conditons and start a new search
+  [x] user can enter city/state to fetch weather conditions
+  [x] displays weather conditions and start a new search
+  [x] some styling with styled system and styled component
 
 - plans
 
-  - add user login/authentication
-  - ability to show weather forecast by authenticated users
-  - user account customization
+  [ ] add user login/authentication
+  [ ] ability to show weather forecast by authenticated users
+  [ ] user account customization
