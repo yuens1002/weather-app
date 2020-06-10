@@ -5,10 +5,7 @@ const Box = styled('div')(
   css({
     maxWidth: 'mm',
     width: '80%',
-    height: '80%',
-    bg: 'gray100',
     padding: [1, 3, 6],
-    margin: 'auto auto',
   })
 );
 
