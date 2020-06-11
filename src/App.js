@@ -5,6 +5,7 @@ import Input from './comps/Input/Input';
 import { GroupV } from './comps/styled/GroupV/GroupV';
 import { getWeather } from './api/weather';
 import Results from './comps/Results/Results';
+import Button from './comps/styled/Button/Button';
 
 function App() {
   const [city, setCity] = useState('');
@@ -14,7 +15,7 @@ function App() {
   const [showResults, setShowResults] = useState(false);
   const errorMsg = {
     network: 'network error',
-    fetch: 'no data found',
+    fetch: 'hmm... never heard of that city/state 🤷‍♂️',
   };
   const [errMsg, setErrMsg] = useState(errorMsg.network);
   const submitHandler = (e) => {
@@ -34,15 +35,21 @@ function App() {
     setState('');
   };
 
+  const HandleSubmitButton = (e) => [
+    e.preventDefault(),
+    resetFields(),
+    setShowResults(false),
+  ];
+
   return (
-    <Container display="flex" flexWrap="wrap" width="100%" height="100vh">
+    <Container display="flex" flexWrap="wrap" height="100vh">
       <Container
         display="flex"
         textAlign="center"
         alignItems="center"
         width={['100%', '50%']}
-        height={['50%', '100%']}>
-        <Container width="100%" m="0 24px">
+        height={['50vh', '100vh']}>
+        <Container mx={[12, 40]}>
           <h1>Weather Station No.179</h1>
         </Container>
       </Container>
@@ -52,38 +59,33 @@ function App() {
         alignItems="center"
         bg="gray100"
         width={['100%', '50%']}
-        height={['50%', '100%']}>
+        height={['50vh', '100vh']}>
         <Box as="form" onSubmit={submitHandler}>
           {showResults ? (
             <p>Current Weather Conditions in {data.formatted_address}</p>
           ) : (
             <p>
-              Enter the <u>city</u> and <u>state</u> to get current weather
+              Enter a US <u>city</u> and <u>state</u> to get current weather
             </p>
           )}
-          {hasError && <div style={{ color: 'red' }}>{errMsg}</div>}
+          {hasError && <Container color="red">{errMsg}</Container>}
           <Container as="section" mt={6}>
             {showResults ? (
               <GroupV style={{ textAlign: 'center' }}>
                 <Results results={data.weather} />
-                <div style={{ paddingTop: '0.4rem' }}>
-                  <button
-                    onClick={(e) => [
-                      e.preventDefault(),
-                      resetFields(),
-                      setShowResults(false),
-                    ]}>
+                <Container pt={3} textAlign="right">
+                  <Button as="button" btnHandler={HandleSubmitButton}>
                     Try Another city
-                  </button>
-                </div>
+                  </Button>
+                </Container>
               </GroupV>
             ) : (
               <GroupV>
                 <Input type={`City`} value={city} changeHandler={setCity} />
                 <Input type={`State`} value={state} changeHandler={setState} />
-                <div style={{ textAlign: 'right', paddingTop: '.2rem' }}>
-                  <button type="submit">Get Weather</button>
-                </div>
+                <Container textAlign="right" pt={3}>
+                  <Button type="submit">Get Weather</Button>
+                </Container>
               </GroupV>
             )}
           </Container>

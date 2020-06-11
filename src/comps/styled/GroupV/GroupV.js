@@ -3,9 +3,10 @@ import styled from 'styled-components';
 // giving any single-ton comps the same vertical in-btwn spacing
 const GroupV = styled.div`
   > * {
-    padding-bottom: 1.2rem;
+    padding-bottom: ${({ theme: { space } }) => space[5]};
   }
-  padding: ${({ padding }) => (padding ? padding : '0.4rem 0 0')};
+  padding: ${({ padding, theme: { space } }) =>
+    padding ? padding : `${space[1]} 0 0`};
 `;
 
 export { GroupV };

@@ -40,6 +40,9 @@ export const theme = {
     gray700: 'hsl(210, 7%, 43%)',
     gray800: 'hsl(210, 7%, 17%)',
     gray900: 'hsl(210, 5%, 9%)',
+    error: '#e7040f',
+    primary: '#d5008f',
+    'light-pink': '#ffa3d7',
   },
   sizes: [
     '10rem',
@@ -62,7 +65,7 @@ export const theme = {
     '32px',
     '64px',
   ],
-  radii: ['4px', '6px', '8px', '10px'],
+  radii: ['0', '4px', '6px', '8px', '10px'],
 };
 
 theme.fontSizes['body'] = '1rem';
